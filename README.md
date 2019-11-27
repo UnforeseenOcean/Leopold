@@ -13,7 +13,7 @@ You will need the following, but since this project is so simple this could be a
     - Alternatively, you can use a rechargeable lithium battery which is designed for this circuit, but isn't made clear in the listing.
 - Aosong AM2320 I2C temperature and humidity sensor
     - This could easily be substituted for other more accurate sensors.
-- YwRobot I2C 16*2 character LCD
+- YwRobot I2C 16\*2 character LCD
     - You can substitute this with other displays that use I2C interface or SPI. This code will exclusively use this display.
 - Raspberry Pi 3 or Raspberry Pi 3+
 - Class 10 MicroSD card with capacity of at least 16GB
@@ -25,10 +25,36 @@ You will need the following, but since this project is so simple this could be a
     - A version with variable volume is recommended.
     - If you don't care about the Bluetooth speaker portion or if you are okay with low quality and low volume audio, you can just use the cheap $1 speaker from your local store.
 - 2 channel 5V relay module
-    - Some modules are active low -- you will need to account for this when wiring this up.
-    - If you don't want to have a Bluetooth speaker functionality, you can omit this.
+    - Some modules are active low -- This means the module will turn on when you pull the input low (i.e. sink the current, not source it), and you will need to account for this when wiring this up.
+    - If you don't need a Bluetooth speaker functionality, you can omit this.
+    - Warning: Some relay modules will have a secondary jumper which, if removed, isolates the power supply of the relay. DO NOT move the jumper to the secondary position! This will short Vcc with GND and this will fry your board!
 - Bluetooth audio board
     - Since we are using the relay to switch the input of the amplifier, you should use one that does not have an amplifier on-board.
     - If you have a mono audio or if you don't want a stereo audio, simply tie two channels together, preferably through two 100 ohm resistors, one for each channel.
 - WS2812 "Neopixel" board (4 LEDs)
     - If you don't care about the lighting, you can omit this.
+    - You can use as many or as few as you want, from none to 8. But keep the current consumption in mind!
+- A pair of 1 kilohm resistors
+    - This is used just in case the configuration of the relay board is incorrect and it pulls too much current from the Raspberry Pi board.
+    - It's a good idea to include one on the input and output pins to safeguard against overcurrent.
+- Bunch of hook-up wires
+    - Generic search term to use is "Arduino jumper wire". It's sometimes referred to as "Dupont wire"
+- Some tinned solid-core wires
+    - 30AWG and 25AWG wires are the common ones and this is pretty useful on soldering components on Veroboard / Perfboard.
+- Wire stripper
+    - Get a sharp one. Seriously. Just thank me later.
+- Wire cutter (flush cutter)
+    - Anything will do but I recommend using one designed for circuits and not cutting steel wires.
+- Screwdriver
+    - Get one of those pen-shaped screwdrivers with interchangeable tips.
+- MicroSD card reader
+    - Get one that doesn't overheat. Nothing is worse than having to buy a new card because the card reader overheated and the controller decided it's too unsafe to let anyone write to the card again.
+    - How do I know? Well...
+- An image of Raspbian Buster or Stretch
+    - I recommend one with Desktop.
+- A voice pack from Asterisk/FreePBX
+    - Warning: If you decide to redistribute the complete image, make sure you replace the voice samples with one you have permission to include! I'm using it here because it's the best voice pack I can get my hands on.
+    - Another alternative would be utilizing Google TTS or even Cameo (a voice actor commission website) to get some voice samples.
+    - Now this is where your creativity and ingenuity comes into play -- Let your creativity run wild! Make this thing speak in Russian, in a voice of Reinhardt, or even in Klingon if you want!
+    - This is pretty easy to modify, add and remove. So, customize the voices and sequences to fit your needs.
+    - My code was originally designed to have a time-based greeting (good morning/afternoon/evening/night) but I've decided to not do that for the time being.
