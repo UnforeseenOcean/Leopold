@@ -18,11 +18,17 @@ You will need the following, but since this project is so simple this could be a
 - Raspberry Pi 3 or Raspberry Pi 3+
 - Class 10 MicroSD card with capacity of at least 16GB
     - This code utilizes segmented audio, so fast access to files is important.
+    - I recommend getting a new card for this.
 - 5V 2.5A~ USB power supply
     - If you are seeing the yellow lightning bolt on the display, the power supply is too weak and it may cause RPi to crash when the speaker and/or the relay is activated!
-- Mini 5V 1W amplifier board
+- PAM8403 Mini 5V 1W amplifier board 
     - A version with variable volume is recommended.
     - If you don't care about the Bluetooth speaker portion or if you are okay with low quality and low volume audio, you can just use the cheap $1 speaker from your local store.
 - 2 channel 5V relay module
     - Some modules are active low -- you will need to account for this when wiring this up.
     - If you don't want to have a Bluetooth speaker functionality, you can omit this.
+- Bluetooth audio board
+    - Since we are using the relay to switch the input of the amplifier, you should use one that does not have an amplifier on-board.
+    - If you have a mono audio or if you don't want a stereo audio, simply tie two channels together, preferably through two 100 ohm resistors, one for each channel.
+- WS2812 "Neopixel" board (4 LEDs)
+    - If you don't care about the lighting, you can omit this.
