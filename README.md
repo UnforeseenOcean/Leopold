@@ -21,6 +21,12 @@ You will need the following, but since this project is so simple this could be a
     - I recommend getting a new card for this.
 - 5V 2.5A~ USB power supply
     - If you are seeing the yellow lightning bolt on the display, the power supply is too weak and it may cause RPi to crash when the speaker and/or the relay is activated!
+- 104 ceramic capacitors
+    - This is to reduce the clicking noise from the speakers when the relay turns on and off.
+    - Connect this between positive and negative power connection on the amplifier.
+- 100uF electrolytic capacitors
+    - This is to stabilize the power supply.
+    - Note: This may cause the dreaded yellow lightning bolt to appear during the boot. If this causes problems, lower the value of the capacitor.
 - PAM8403 Mini 5V 1W amplifier board 
     - A version with variable volume is recommended.
     - If you don't care about the Bluetooth speaker portion or if you are okay with low quality and low volume audio, you can just use the cheap $1 speaker from your local store.
@@ -28,9 +34,15 @@ You will need the following, but since this project is so simple this could be a
     - Some modules are active low -- This means the module will turn on when you pull the input low (i.e. sink the current, not source it), and you will need to account for this when wiring this up.
     - If you don't need a Bluetooth speaker functionality, you can omit this.
     - Warning: Some relay modules will have a secondary jumper which, if removed, isolates the power supply of the relay. DO NOT move the jumper to the secondary position! This will short Vcc with GND and this will fry your board!
+    - My module uses 150mA when both channels are turned on, which is a bit too much in my opinion -- since we are dealing with very low voltages, just use smaller low-current relays. 
+    - But do not use solid-state relays. They don't take the audio signal well.
 - Bluetooth audio board
     - Since we are using the relay to switch the input of the amplifier, you should use one that does not have an amplifier on-board.
-    - If you have a mono audio or if you don't want a stereo audio, simply tie two channels together, preferably through two 100 ohm resistors, one for each channel.
+    - If you have a mono audio or if you don't want a stereo audio, simply tie two channels together, preferably through two low-value resistors, one for each channel.
+- 3.5" audio plug
+    - This is used to connect to the Raspberry Pi's audio port unintrusively.
+    - You might be able to get away with bare wires soldered to the port.
+    - For Raspberry Pi Zero, you need to build a simple audio driver circuit. Everything else remains the same.
 - WS2812 "Neopixel" board (4 LEDs)
     - If you don't care about the lighting, you can omit this.
     - You can use as many or as few as you want, from none to 8. But keep the current consumption in mind!
@@ -42,7 +54,7 @@ You will need the following, but since this project is so simple this could be a
 - Some tinned solid-core wires
     - 30AWG and 25AWG wires are the common ones and this is pretty useful on soldering components on Veroboard / Perfboard.
 - Wire stripper
-    - Get a sharp one. Seriously. Just thank me later.
+    - Get a sharp one. Seriously. You will thank me later.
 - Wire cutter (flush cutter)
     - Anything will do but I recommend using one designed for circuits and not cutting steel wires.
 - Screwdriver
