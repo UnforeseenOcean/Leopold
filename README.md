@@ -36,6 +36,10 @@ You will need the following, but since this project is so simple this could be a
     - Warning: Some relay modules will have a secondary jumper which, if removed, isolates the power supply of the relay. DO NOT move the jumper to the secondary position! This will short Vcc with GND and this will fry your board!
     - My module uses 150mA when both channels are turned on, which is a bit too much in my opinion -- since we are dealing with very low voltages, just use smaller low-current relays. 
     - But do not use solid-state relays. They don't take the audio signal well.
+- 74LS14 hex inverter IC
+    - This is used to prevent the floating line problem (half-on) on Raspberry Pi.
+    - If your relay does not have an inverted logic (non-isolated ones usually are) use two inverter channels to flip the logic back.
+    - If your relay has an inverted logic (isolated ones usually are) use one inverter channel for each input.
 - Bluetooth audio board
     - Since we are using the relay to switch the input of the amplifier, you should use one that does not have an amplifier on-board.
     - If you have a mono audio or if you don't want a stereo audio, simply tie two channels together, preferably through two low-value resistors, one for each channel.
