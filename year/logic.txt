@@ -1,0 +1,11 @@
+if year contains less than 10 when the thousandth digit is subtracted, but is not zero:
+2009 -> 2 009
+(two~nine)(thousand)(and)(one~nine)
+
+if year is zero when the thousandth digit is subtracted:
+2009 -> 2 009
+(the year)(two~nine)(thousand)
+
+if year contains more than 10 when the thousandth digit is subtracted:
+2019 -> 20 19
+(nineteen~ninety)(ten~nine)
