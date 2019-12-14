@@ -77,7 +77,7 @@ You will need the following, but since this project is so simple this could be a
     - This is pretty easy to modify, add and remove. So, customize the voices and sequences to fit your needs.
     - My code was originally designed to have a time-based greeting (good morning/afternoon/evening/night) but I've decided to not do that for the time being.
     - To avoid copyright issues, the voice samples are not included. Instead, a detailed file description is included for the making of the voice clips.
-- All of the Python code in the `src` directory
+- All of the Python code in the project directory
     - Refer to installation guide to set it up.
 
 # Installation Guide
@@ -87,7 +87,11 @@ Enable SSH, VNC and I2C using Raspberry Config utility.
 
 Reboot your Raspberry Pi.
 
-Using VNC, copy the entire `src` directory to a folder named `clock` on your Desktop.
+Clone or download this project.
+
+Make the voice clips according to the `sound_desc.txt` in each folder. They must be named exactly as listed.
+
+Using VNC, copy the entire project, including the voice clips (do not remove the folders) to a folder named `clock` on your Desktop.
 
 Open the terminal and run the commands below in sequence:
 ```
@@ -139,6 +143,20 @@ fi
 ```
 Check if the clock is working by using `sudo hwclock -r`.
 If it doesn't match, use `sudo hwclock -w` to write a new time to RTC module.
+
+You're almost done. Navigate into the `clock` folder on your desktop by typing `cd Desktop/clock` on your terminal.
+
+Run `chmod 755 bootstrap.sh` to make the bootstrap script executable.
+
+Run `crontab -e` then add this to the end of the file:
+```
+@reboot /home/pi/Desktop/clock/bootstrap.sh
+```
+Save and reboot. If everything has gone well, you'll hear a chime. If the relay is not turned off, you'll hear two different chimes.
+
+You'll see the time and date displayed on the LCD.
+
+Press the button. You'll hear the relay turn on and if you prepared the voice clips correctly, it will start speaking.
 
 ---
 
