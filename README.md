@@ -66,11 +66,16 @@ You will need the following, but since this project is so simple this could be a
 - MicroSD card reader
     - Get one that doesn't overheat. Nothing is worse than having to buy a new card because the card reader overheated and the controller decided it's too unsafe to let anyone write to the card again.
     - How do I know? Well...
+
+## Software
 - An image of Raspbian Buster or Stretch
-    - I recommend one with Desktop.
+    - I recommend one with Desktop, though it's not a requirement (you can use Lite).
 - A voice pack from Asterisk/FreePBX
     - Warning: If you decide to redistribute the complete image, make sure you replace the voice samples with one you have permission to include! I'm using it here because it's the best voice pack I can get my hands on.
     - Another alternative would be utilizing Google TTS or even Cameo (a voice actor commission website) to get some voice samples.
     - Now this is where your creativity and ingenuity comes into play -- Let your creativity run wild! Make this thing speak in Russian, in a voice of Reinhardt, or even in Klingon if you want!
     - This is pretty easy to modify, add and remove. So, customize the voices and sequences to fit your needs.
     - My code was originally designed to have a time-based greeting (good morning/afternoon/evening/night) but I've decided to not do that for the time being.
+    - To avoid copyright issues, the voice samples are not included. Instead, a detailed file description is included for the making of the voice clips.
+- All of the Python code in the `src` directory
+    - Refer to installation guide to set it up.
