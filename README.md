@@ -132,7 +132,7 @@ If it still doesn't show anything try power-cycling the I2C devices.
 
 (Unplug the devices or shut down RPi, then **unplug the power source**)
 
-Test AM2320 by running python am2320test.py. It will print out the current temperature and humidity seen by the sensor.
+Test AM2320 by running `python am2320test.py`. It will print out the current temperature and humidity seen by the sensor.
 
 AM2320 will go to sleep when not used -- it will appear during the first 3 seconds of boot.
 
