@@ -79,3 +79,83 @@ You will need the following, but since this project is so simple this could be a
     - To avoid copyright issues, the voice samples are not included. Instead, a detailed file description is included for the making of the voice clips.
 - All of the Python code in the `src` directory
     - Refer to installation guide to set it up.
+
+# Installation Guide
+Install a fresh copy of Raspbian Buster or Stretch.
+
+Enable SSH, VNC and I2C using Raspberry Config utility.
+
+Reboot your Raspberry Pi.
+
+Using VNC, copy the entire `src` directory to a folder named `clock` on your Desktop.
+
+Open the terminal and run the commands below in sequence:
+```
+sudio apt-get install portaudio19-dev
+pip install PyAudio
+sudo apt-get install mplayer
+```
+
+If you get audio errors, check if the interface is set correctly.
+
+(Specifically, it might be set to HDMI audio if you're using analog output)
+
+Or install ALSA tools and drivers:
+```
+sudo apt-get install alsa-tools alsa-utils
+```
+If you get low volume or no audio, use the following commands to initialize ALSA:
+```
+alsactl init
+alsamixer
+```
+
+Then, run the following to make sure I2C support is active:
+```
+sudo apt-get install -y python-smbus
+sudo apt-get install -y i2c-tools
+```
+Then run `sudo i2cdetect -y 1` to detect I2C devices.
+
+If it shows nothing or doesn't show all devices, run `sudo i2cdetect -y -r 1`.
+
+If it still doesn't show anything try power-cycling the I2C devices. 
+
+(Unplug the devices or shut down RPi, then **unplug the power source**)
+
+Test AM2320 by running python am2320test.py. It will print out the current temperature and humidity seen by the sensor.
+
+AM2320 will go to sleep when not used -- it will appear during the first 3 seconds of boot.
+
+Add the following to /boot/config.txt
+```
+dtoverlay=i2c-rtc,ds3231
+```
+Comment out the following from /lib/udev/hwclock-set
+```
+if [ -e /run/systemd/system ] ; then
+    exit 0
+fi
+```
+Check if the clock is working by using `sudo hwclock -r`.
+If it doesn't match, use `sudo hwclock -w` to write a new time to RTC module.
+
+---
+
+To test different date and time:
+
+Run the following command and reboot.
+```
+systemctl disable systemd-timesyncd.service
+```
+Then set a new time using:
+```
+date -s yyyy-mm-dd hh:mm:ss
+```
+The time will update every few minutes, so wait few seconds for it to update.
+
+To reenable NTP service, run:
+```
+systemctl enable systemd-timesyncd.service
+```
+Then reboot your Raspberry Pi.
