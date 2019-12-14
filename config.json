@@ -1,0 +1,12 @@
+{
+	"hourType": 12,
+	"validHourType": ["12", "24"],
+	"tempUnit": "c",
+	"debugTemp": "44.23",
+	"validTempUnit": ["c", "f", "k"],
+	"debugHumid": "95.43",
+	"debug": "false",
+	"alarmHour": 12,
+	"alarmMinute": 0,
+	"alarmEnable": "false"
+}
