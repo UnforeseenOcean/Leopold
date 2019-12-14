@@ -191,4 +191,4 @@ DS3231 setup info was from https://www.andreavinci.it/blog/en/2018/02/22/rapberr
 
 The I2C LCD code was from https://gist.github.com/DenisFromHR/cc863375a6e19dce359d
 
-AM2320 library and script was from 
+AM2320 library and script was from https://github.com/Shoe-Pi/AM2320_Pi
