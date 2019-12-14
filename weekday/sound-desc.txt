@@ -1,1 +1,9 @@
+[Weekdays (Sunday~Saturday)]
 
+0.wav - "Sunday"
+1.wav - "Monday"
+2.wav - "Tuesday"
+3.wav - "Wednesday"
+4.wav - "Thursday"
+5.wav - "Friday"
+6.wav - "Saturday"
