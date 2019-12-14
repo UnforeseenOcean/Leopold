@@ -6,7 +6,10 @@ This is a simple talking clock that focuses on hackability than practicality -- 
 
 The entire thing is written in Python and designed for Raspberry Pi 3.
 
-# Hardware
+# Build guide
+The following will describe the build process of this project.
+
+## Hardware / Components
 You will need the following, but since this project is so simple this could be adapted and modified for other hardware, such as Raspberry Pi Zero or Orange Pi.
 - DS3231 Real Time Clock module
     - Warning: If you are using a non-rechargeable CR2032 battery, cut the trace above the diode or remove the diode to disable the charging circuit, or the battery may explode.
@@ -47,9 +50,6 @@ You will need the following, but since this project is so simple this could be a
     - This is used to connect to the Raspberry Pi's audio port unintrusively.
     - You might be able to get away with bare wires soldered to the port.
     - For Raspberry Pi Zero, you need to build a simple audio driver circuit. Everything else remains the same.
-- WS2812 "Neopixel" board (4 LEDs)
-    - If you don't care about the lighting, you can omit this.
-    - You can use as many or as few as you want, from none to 8. But keep the current consumption in mind!
 - A pair of 1 kilohm resistors
     - This is used just in case the configuration of the relay board is incorrect and it pulls too much current from the Raspberry Pi board.
     - It's a good idea to include one on the input and output pins to safeguard against overcurrent.
@@ -57,6 +57,8 @@ You will need the following, but since this project is so simple this could be a
     - Generic search term to use is "Arduino jumper wire". It's sometimes referred to as "Dupont wire"
 - Some tinned solid-core wires
     - 30AWG and 25AWG wires are the common ones and this is pretty useful on soldering components on Veroboard / Perfboard.
+
+## Tools
 - Wire stripper
     - Get a sharp one. Seriously. You will thank me later.
 - Wire cutter (flush cutter)
@@ -79,6 +81,9 @@ You will need the following, but since this project is so simple this could be a
     - To avoid copyright issues, the voice samples are not included. Instead, a detailed file description is included for the making of the voice clips.
 - All of the Python code in the project directory
     - Refer to installation guide to set it up.
+- Audacity, GoldWave or other audio editing program
+    - This will be used to make the voice segments for your clock.
+    - Since I included the descriptions and what it was supposed to say in a text file, it should be easy to make something that automatically assembles the audio according to the text in the quote marks.
 
 # Installation Guide
 Install a fresh copy of Raspbian Buster or Stretch.
@@ -177,3 +182,13 @@ To reenable NTP service, run:
 systemctl enable systemd-timesyncd.service
 ```
 Then reboot your Raspberry Pi.
+
+## Credits
+
+DS3231 library was provided by the Raspberry Pi community.
+
+DS3231 setup info was from https://www.andreavinci.it/blog/en/2018/02/22/rapberry-pi-3-ds3231-real-time-clock/
+
+The I2C LCD code was from https://gist.github.com/DenisFromHR/cc863375a6e19dce359d
+
+AM2320 library and script was from 
