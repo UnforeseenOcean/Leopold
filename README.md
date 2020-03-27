@@ -194,3 +194,14 @@ The I2C LCD code was from https://gist.github.com/DenisFromHR/cc863375a6e19dce35
 AM2320 library and script was from https://github.com/Shoe-Pi/AM2320_Pi
 
 Christmas notification sound provided by https://notificationsounds.com/
+
+# TODO
+
+- Refactor code
+- Clean the mess
+- Concat library and code
+- Oh my the code is a spaghetti
+- Remove stress indicators
+- Un-spaghetti the code
+- Remove redundant variables
+- Remove repeating codes
